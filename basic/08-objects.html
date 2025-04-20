@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects</title>
+</head>
+
+<body>
+    <!-- ===========================
+         What is an Object?
+         =========================== 
+         
+         - An object groups multiple values together.
+         - It allows us to store and use multiple values efficiently.
+    -->
+
+    <script>
+        // ===========================
+        // Why Use Objects?
+        // ===========================
+        // - Objects make code more organized.
+        // - They let us group multiple values together.
+        // - We can access and modify properties easily.
+
+        // ===========================
+        // Creating an Object
+        // ===========================
+        // Syntax: object = { property: value };
+
+        const product = {
+            name: 'socks',
+            price: 1090
+        };
+
+        console.log(product);          // Print the entire object
+        console.log(product.name);     // Access 'name' property using dot notation
+        console.log(product.price);    // Access 'price' property using dot notation
+
+        // ===========================
+        // Modifying Object Properties
+        // ===========================
+        product.name = 'cotton socks';
+        console.log(product);          // Updated object
+
+        // Adding a new property
+        product.newProperty = true;
+        console.log(product);          // Object now includes 'newProperty'
+
+        // Deleting a property
+        delete product.newProperty;
+        console.log(product);          // 'newProperty' removed
+
+        // ===========================
+        // Dot Notation vs Bracket Notation
+        // ===========================
+        // - Use dot notation by default.
+        // - Use bracket notation when property names contain special characters.
+
+        // ===========================
+        // Nested Objects & Methods in Objects
+        // ===========================
+        const product2 = {
+            name: 'shirt',
+            ['delivery-time']: '1 day', // Using bracket notation for property with a hyphen
+
+            // Nested object
+            rating: {
+                stars: 4.5,
+                count: 87
+            },
+
+            // Function inside an object (called a method)
+            displayMessage: function () {
+                console.log('Function inside object');
+            }
+        };
+
+        console.log(product2);
+        console.log(product2.name);            // Dot notation
+        console.log(product2['name']);         // Bracket notation
+        console.log(product2['delivery-time']); // Must use bracket notation due to hyphen
+
+        console.log(product2.rating.count);    // Access nested object property
+        product2.displayMessage();             // Call object method
+
+        // ===========================
+        // 2 More Built-in Objects
+        // ===========================
+
+        // 1. JSON (JavaScript Object Notation)
+        // - JSON is a syntax similar to JavaScript objects.
+        // - It has fewer features (e.g., no functions).
+        // - Property names and string values must use double quotes.
+
+        // Convert JavaScript Object to JSON
+        console.log(JSON.stringify(product2));
+
+        // Convert JSON back to JavaScript Object
+        const jsonString = JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+
+        // ===========================
+        // 2. localStorage
+        // ===========================
+        // - Variables are temporary; if the page is refreshed/closed, they are lost.
+        // - localStorage allows us to store data persistently in the browser.
+
+        // Example usage inside "08-rock-paper-scissors.html"
+
+        //
+        // auto boxing
+        //
+
+
+    </script>
+</body>
+
+</html>

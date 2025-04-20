@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Q1: Basic Conversion(Easy)
+        // Write a function convertToKm(miles) that takes a number representing miles and converts it to kilometers.
+        // (1 mile = 1.6 km)
+        // correct. improvement add .toFixed(2);
+
+        function convertToKm(miles) {
+            const km = (miles * 1.6).toFixed(2);
+            return `${km} km`;
+        }
+        console.log(convertToKm(10));
+        console.log(convertToKm(25));
+
+
+
+        //Q2: Bidirectional Conversion (Easy)
+        // Write a function convertLength(length, fromUnit, toUnit) that converts between miles and kilometers.
+        // It should correctly handle conversion in both directions.
+        // comment or improvement:
+
+        function convertLength(length, fromUnit, toUnit) {
+
+            const validUnits = ['km', 'miles'];
+            if (!validUnits.includes(fromUnit) || !validUnits.includes(toUnit)) {
+                return `Invalid unit: ${fromUnit} or ${toUnit}`;
+            }
+
+            if (fromUnit === 'km' && toUnit === 'miles') {
+
+                const result = (length / 1.6).toFixed(2);
+                return `${result} miles`;
+            }
+            else if (fromUnit === 'miles' && toUnit === 'km') {
+                const result = (length * 1.6).toFixed(2);
+                return `${result} km`;
+            }
+            else if (fromUnit === toUnit) {
+                return `${length.toFixed(2)} ${fromUnit}`;
+            }
+        }
+        console.log(convertLength(50, 'miles', 'km'));
+        console.log(convertLength(32, 'km', 'miles'));
+        console.log(convertLength(50, 'km', 'km'));
+
+
+        // Q3: Add Feet Conversion(Medium)
+        // Expand convertLength(length, fromUnit, toUnit) to support feet(ft) as well.
+        // (1 mile = 5280 ft, 1 km = 3281 ft)
+
+        function convertLength(length, fromUnit, toUnit) {
+
+            const validUnits = ['km', 'miles', 'ft'];
+            if (!validUnits.includes(fromUnit) || !validUnits.includes(toUnit)) {
+                return `Invalid unit: ${fromUnit} or ${toUnit}`;
+            }
+
+            if (fromUnit === 'km' && toUnit === 'miles') {
+                const result = (length / 1.6).toFixed(2);
+                return `${result} miles`;
+            }
+            else if (fromUnit === 'km' && toUnit === 'ft') {
+                const result = (length * 3281).toFixed(2);
+                return `${result} ft`;
+            }
+            else if (fromUnit === 'miles' && toUnit === 'km') {
+                const result = (length * 1.6).toFixed(2);
+                return `${result} km`;
+            }
+            else if (fromUnit === 'miles' && toUnit === 'ft') {
+                const result = (length * 5280).toFixed(2);
+                return `${result} ft`;
+            }
+            else if (fromUnit === 'ft' && toUnit === 'km') {
+                const result = (length / 3281).toFixed(2);
+                return `${result} km`;
+            }
+            else if (fromUnit === 'ft' && toUnit === 'miles') {
+                const result = (length / 5280).toFixed(2);
+                return `${result} miles`;
+            }
+            else if (fromUnit === toUnit) {
+                return `${length.toFixed(2)} ${fromUnit}`;
+            }
+        }
+        console.log(convertLength(5, 'miles', 'km'));
+        console.log(convertLength(5, 'miles', 'ft'));
+        console.log(convertLength(5, 'km', 'ft'));
+
+    </script>
+</body>
+
+</html>

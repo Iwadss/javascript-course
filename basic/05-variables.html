@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables</title>
+</head>
+
+<body>
+    <script>
+
+        // ===========================
+        // 1. Variable Name Restrictions
+        // ===========================
+        // - Cannot use reserved keywords (e.g., let, const, var)
+        // - Cannot start with a number
+        // - Can only use letters, numbers, $, and _
+
+        // ===========================
+        // 2. Variable Declaration and Assignment
+        // ===========================
+        let variable1 = 3;
+        console.log(variable1); // Output: 3
+
+        const calculation = 2 + 2;
+        console.log(calculation); // Output: 4
+        console.log(calculation + 2); // Output: 6
+
+        const result = calculation + 2;
+        console.log(result); // Output: 6
+
+        let message = 'hello';
+        console.log(message); // Output: hello
+
+        // ===========================
+        // 3. Re-assigning Variables
+        // ===========================
+        variable1 = 5;
+        console.log(variable1); // Output: 5
+
+        variable1 = variable1 + 1;
+        console.log(variable1); // Output: 6
+
+        // ===========================
+        // 4. Variable Types and typeof Operator
+        // ===========================
+        const variable2 = 3;   // Number
+        var variable3 = 3;     // Number (using var, but let/const is preferred)
+
+        console.log(typeof variable2); // Output: number
+        console.log(typeof message);   // Output: string
+
+    </script>
+</body>
+
+</html>

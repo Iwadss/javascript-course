@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+</head>
+
+<body>
+    <script>
+
+        // ===========================
+        // 1. What is a Function?
+        // ===========================
+        // A function allows us to reuse code.
+        // It helps keep the code DRY (Don't Repeat Yourself).
+
+        // ===========================
+        // 2. Function Naming Rules
+        // ===========================
+        // - Cannot use reserved keywords (e.g., function, let, var)
+        // - Cannot start with a number
+        // - Can only use letters, numbers, $, and _
+        // - Best practice: Use camelCase naming
+
+        // ===========================
+        // 3. Basic Function Example
+        // ===========================
+
+        function function1() {
+            console.log('Hello');
+            console.log(2 + 2);
+        }
+
+        function1(); // Calling the function
+        function1(); // Calling the function again
+
+        // ===========================
+        // 4. Function Parameters and Return Values
+        // ===========================
+        // - Parameters allow values to be passed into a function
+        // - The return statement gets a value out of a function
+
+        // Rules for parameter names:
+        // - Cannot use reserved keywords (e.g., function, let)
+        // - Cannot start with a number
+        // - Can only use letters, numbers, $, and _
+
+        function calculateTax(cost, taxPercent = 0.1) { // Default taxPercent is 0.1 (10%)
+            console.log(cost * taxPercent);
+        }
+
+        calculateTax(2000, 0.2); // Output: 400
+        calculateTax(5000);      // Output: 500 (uses default 10%)
+
+    </script>
+</body>
+
+</html>
