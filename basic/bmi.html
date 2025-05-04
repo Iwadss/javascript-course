@@ -4,55 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BMI</title>
 </head>
 
 <body>
 
-    <p>Weight (kg): <input type="number" id="weight"></p>
-    <p>Height (cm): <input type="number" id="height"></p>
+    <p>Weight (kg): <input type="number" class="js-weight"></p>
+    <p>Height (cm): <input type="number" class="js-height"></p>
 
     <button onclick="bmi()">Calculate</button>
 
-    <p id="result"></p>
+    <p class="js-result"></p>
+    <p class="js-message"></p>
 
-    <Script>
-
+    <script>
         function bmi() {
-            let weight = parseFloat(document.getElementById('weight').value);
-            let height = parseFloat(document.getElementById('height').value);
+            const inputweight = document.querySelector('.js-weight');
+            const inputheight = document.querySelector('.js-height');
+            let message;
 
-            bmi = weight / ((height / 100) * (height / 100));
+            const weight = Number(inputweight.value);
+            const height = Number(inputheight.value);
 
-            document.getElementById('result').innerText = `Your BMI is ${bmi.toFixed(2)}.`;
+            if (!weight || !height) {
+                document.querySelector('.js-result').innerText = "Please enter both weight and height.";
+                document.querySelector('.js-message').innerText = "";
+                return;
+            }
 
+            const bmiValue = weight / ((height / 100) ** 2);
+
+            if (bmiValue <= 18.5) {
+                message = 'Underweight';
+            } else if (bmiValue > 18.5 && bmiValue <= 24.9) {
+                message = 'Normal weight';
+            } else if (bmiValue > 24.9 && bmiValue <= 29.9) {
+                message = 'Overweight';
+            } else {
+                message = 'Obese';
+            }
+
+            document.querySelector('.js-result').innerText = `Your BMI is ${bmiValue.toFixed(2)}.`;
+            document.querySelector('.js-message').innerText = `You are ${message}.`;
         }
-
-
-        // console.log('BMI Calculator');
-
-        // let message;
-
-        // function bmi(weight, height) {
-        //     const bmi = weight / ((height / 100) * (height / 100));
-
-        //     if (bmi <= 18.5) {
-        //         message = 'Underweight';
-        //     }
-        //     else if (bmi >= 18.5 && bmi <= 24.9) {
-        //         message = 'Normal Weight';
-        //     }
-        //     else if (bmi >= 25.0 && bmi <= 29.9) {
-        //         message = 'Overweight';
-        //     }
-        //     else {
-        //         message = 'Obese';
-        //     }
-        //     return bmi;
-        // }
-
-        // console.log(bmi(60, 175));
-        // console.log(message);
 
     </Script>
 </body>

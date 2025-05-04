@@ -8,12 +8,22 @@
 </head>
 
 <body>
-    <!-- ===========================
-         What is an Object?
-         =========================== 
-         
-         - An object groups multiple values together.
-         - It allows us to store and use multiple values efficiently.
+    <!-- 
+        Lesson Overview:
+        1. Understanding JavaScript Objects for grouping related data.
+        2. Extending Rock Paper Scissors game with a score object.
+        3. Exploring built-in objects: JSON and localStorage.
+        4. Advanced object concepts: null, auto-boxing, reference behavior.
+        5. Object shorthand techniques: destructuring, shorthand properties & methods.
+    -->
+
+    <!-- 
+        ===========================
+        What is an Object?
+        =========================== 
+        
+        - An object groups multiple values together.
+        - It allows us to store and use multiple values efficiently.
     -->
 
     <script>
@@ -109,11 +119,74 @@
 
         // Example usage inside "08-rock-paper-scissors.html"
 
-        //
-        // auto boxing
-        //
+        // ===========================
+        // Auto-boxing in JavaScript
+        // ===========================
+        // In JavaScript, primitive types like strings and numbers are not objects.
+        // However, when you try to access properties or methods on them, JavaScript 
+        // automatically wraps them in temporary object wrappers. This is called auto-boxing.
 
+        console.log('hello'.length);       // Auto-boxes 'hello' into a String object and returns the length (5)
+        console.log('hello'.toUpperCase()); // Converts the string to uppercase using the String object method
 
+        // ===========================
+        // Objects Are References
+        // ===========================
+        // Objects in JavaScript are stored by reference, not by value.
+        // This means when you assign an object to another variable, both variables 
+        // refer to the same object in memory.
+
+        const object1 = {
+            message: 'hello'
+        };
+
+        const object2 = object1; // object2 now references the same object as object1
+
+        // Updating the property through object1 also updates object2, since both point to the same memory location
+        object1.message = 'Good Job!';
+        console.log(object1); // { message: 'Good Job!' }
+        console.log(object2); // { message: 'Good Job!' }
+
+        // Creating a new object with the same properties does NOT mean it's the same object
+        const object3 = {
+            message: 'Good Job'
+        };
+
+        console.log(object3 === object1); // false - different memory locations
+        console.log(object2 === object1); // true  - same reference
+
+        // ===========================
+        // Destructuring Assignment (Shorthand Syntax)
+        // ===========================
+        // This syntax lets us extract properties from objects into standalone variables.
+
+        const object4 = {
+            message: 'Good Job',
+            price: 799
+        };
+
+        // Extract 'message' and 'price' directly into variables using object destructuring
+        const { message, price } = object4;
+        console.log(message); // 'Good Job'
+        console.log(price);   // 799
+
+        // ===========================
+        // Object Shorthand Syntax
+        // ===========================
+
+        // Creating a new object using shorthand property and method names
+        const object5 = {
+            // Instead of writing message: message, use shorthand when key and variable name are the same
+            message,
+
+            // Instead of method: function() {...}, use shorthand method declaration
+            method() {
+                console.log('method');
+            }
+        };
+
+        console.log(object5);     // Logs the full object
+        object5.method();         // Calls the method using the new syntax
     </script>
 </body>
 

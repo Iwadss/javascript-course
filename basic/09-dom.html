@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Lesson</title>
+</head>
+
+<body>
+    <!-- Two buttons to demonstrate DOM selection and manipulation -->
+    <button>First Button</button>
+    <button class="js-button">Second Button</button>
+
+    <script>
+        // ===============================
+        // 📚 LESSON: DOM Manipulation in JS
+        // ===============================
+        //
+        // 1. Understanding the DOM (Document Object Model)
+        // 2. Selecting elements using document.querySelector(...)
+        // 3. Modifying elements with .innerHTML
+        // 4. Using event handlers like onkeydown
+        // 5. Understanding the window object and string manipulation
+        //
+        // ===============================
+
+        // The document object represents the entire HTML document.
+        // The window object represents the browser environment.
+
+        // ----------------------------------------
+        // 💡 Working with document.title
+        // ----------------------------------------
+
+        // Log the current title of the document
+        console.log(document.title);
+
+        // Change the document title dynamically
+        document.title = 'DOM Lesson - Updated';
+
+        // ----------------------------------------
+        // 💡 Accessing and Modifying HTML Content
+        // ----------------------------------------
+
+        // Log the entire body element (represents all content inside <body>)
+        console.log(document.body);
+
+        // Log the HTML inside the body
+        console.log(document.body.innerHTML);
+
+        // Optional: Replace all body content (commented to prevent overwrite)
+        // document.body.innerHTML = '<h2>All content replaced</h2>';
+
+        // ----------------------------------------
+        // 💡 Selecting Elements with querySelector()
+        // ----------------------------------------
+
+        // Select the first <button> element on the page
+        const firstButton = document.querySelector('button');
+        console.log(firstButton.innerHTML); // Log its current content
+
+        // Change the content of the first button
+        firstButton.innerHTML = 'Changed';
+
+        // Select the button with class "js-button"
+        // Using "." because it's a class selector (same syntax as CSS)
+        const secondButton = document.querySelector('.js-button');
+        console.log(secondButton); // Logs: <button class="js-button">Second Button</button>
+
+        // ----------------------------------------
+        // 💬 Note:
+        // - document.querySelector('selector') lets us grab any HTML element
+        // - .innerHTML lets us get or set the HTML content inside that element
+        // - document and window are both global objects
+        //   → document handles the HTML page
+        //   → window represents the whole browser tab or environment
+        // ----------------------------------------
+
+        // 🔜 More advanced topics (e.g., onkeydown, string methods, etc.) can be explored at 09-dom-projects.html and 09-rock-paper-scissor.html.
+
+    </script>
+</body>
+
+</html>

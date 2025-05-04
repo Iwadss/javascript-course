@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Project</title>
+
+    <!-- In this lesson:
+    1. Reviewed CSS, and added CSS to projects
+    2. classList
+    3. Finished Rock Paper Scissors
+    4. Organize JavaScript and CSS code into separate files -->
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .subscribe-button {
+            border: 0;
+            background-color: black;
+            color: white;
+            padding: 10px 10px 15px 15px;
+            border-radius: 20px;
+            margin-bottom: 30pt;
+            cursor: pointer;
+        }
+
+        .is-subscribed {
+            background-color: gray;
+        }
+
+        .cost-input {
+            font-size: 15px;
+            padding: 10px 10px 10px 10px;
+        }
+
+        .calculate-button {
+            border: 0;
+            background-color: green;
+            color: white;
+            font-size: 15px;
+            padding: 12px 15px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Project 1 -->
+    <p>Youtube Subscribe Button</p>
+
+    <button onclick=" Subscribe();
+    " class="js-subscribe-button subscribe-button"> <!-- sini 2 class -->
+        Subscribe
+    </button>
+
+
+    <p>amanzon Shippond Calculator</p>
+    <input class="js-cost-input cost-input" placeholder="Cost of Order" onkeydown="
+    handleCostKeydown(event);
+    ">
+    <button onclick="
+    calculateTotal();
+    " class="calculate-button">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    <script>
+
+        // Project 1
+        function Subscribe() {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+
+            // using innerText instead of innerHTML beacuse i get the text without extra spaces
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed'
+                buttonElement.classList.add('is-subscribed'); //sini
+            } else {
+                buttonElement.innerHTML = 'Subscribe'
+                buttonElement.classList.remove('is-subscribed'); // sini
+            }
+        }
+
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input ');
+            let cost = Number(inputElement.value);
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = `${cost}`;
+        }
+        function handleCostKeydown(event) {
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

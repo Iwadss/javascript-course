@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Project</title>
+</head>
+
+<body>
+
+    <!-- Project 1 -->
+    <p>Youtube Subscribe Button</p>
+
+    <button onclick=" Subscribe();
+    " class="js-subscribe-button">
+        Subscribe
+    </button>
+
+
+    <p>amanzon Shippond Calculator</p>
+    <input class="js-cost-input" placeholder="Cost of Order" onkeydown="
+    handleCostKeydown(event);
+    ">
+    <button onclick="
+    calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    <script>
+
+        // Project 1
+        function Subscribe() {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+
+            // using innerText instead of innerHTML beacuse i get the text without extra spaces
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed'
+            } else {
+                buttonElement.innerHTML = 'Subscribe'
+            }
+        }
+
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = `${cost}`;
+        }
+        function handleCostKeydown(event) {
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

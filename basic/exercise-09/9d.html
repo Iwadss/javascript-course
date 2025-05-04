@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="name" class="js-input">
+    <button onclick="submit()">Submit</button>
+    <p class="js-output"></p>
+
+    <script>
+        function submit() {
+            const inputElement = document.querySelector('.js-input');
+
+            document.querySelector('.js-output').innerHTML = `${inputElement.value}`;
+        }
+
+    </script>
+</body>
+
+</html>
